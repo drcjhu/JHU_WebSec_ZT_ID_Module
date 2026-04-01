@@ -1,0 +1,59 @@
+server:
+  address: 'tcp://:9091/'
+
+log:
+  level: 'info'
+
+identity_validation:
+  reset_password:
+    # Change this to something secure!
+    jwt_secret: 'a_very_long_random_string_must_be_here_32_chars'
+
+totp:
+  issuer: 'Authelia'
+
+authentication_backend:
+  file:
+    path: '/config/users_database.yml'
+
+storage:
+  # Change this to something secure!
+  encryption_key: 'another_very_long_random_string_32_chars'
+  local:
+    path: '/config/db.sqlite3'
+
+notifier:
+  filesystem:
+    filename: '/config/notification.txt'
+
+access_control:
+  default_policy: 'deny'
+  rules:
+    # Here we define our sites. Keep in mind if we had a domain, we would use the public domain
+    # inplace of the *.local
+    # Create a domain and be creative!
+    # domain defines the site that you wish to protect with authelia
+    # "policy: 'two_factor'" protects the target domain behind authelia's 2FA
+    # OR
+    # not protect
+    # In this case you want to utilize 'bypass' to allow users to freely access your blog.
+    # "policy: 'bypass'"
+
+    - domain: 'auth.home.local'
+      policy: 'bypass'
+    - domain: 'blog.home.local'
+      policy: 'bypass'
+    - domain: 'admin.home.local'
+      policy: 'two_factor'
+
+session:
+  name: 'authelia_session'
+  # Change this to something secure!
+  secret: 'unbelievably_long_random_session_secret_string'
+  expiration: '1h'
+  inactivity: '5m'
+  remember_me: '1M' # Updated from remember_me_duration
+  cookies:
+    - domain: 'home.local'
+      authelia_url: 'https://auth.home.local'
+        # default_redirection_url: 'https://blog.home.local' # Moved here

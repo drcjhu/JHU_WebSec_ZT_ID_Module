@@ -1,0 +1,9 @@
+users:
+  admin:
+    displayname: "Admin User"
+    # Create a secure password for this using the instructions provided in the Assignment document. 
+    password: '$argon2id$v=19$m=65536,t=3,p=4$3CimM7n+q4wP1GXhk3Wn9w$n+427BKd9lgS+hoMXAeYmzhvyBo92GElUNhwp7OUMo0'
+    email: admin@home.local
+    groups:
+      - admins
+      - dev
