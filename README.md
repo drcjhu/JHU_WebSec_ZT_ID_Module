@@ -34,13 +34,15 @@ You may either download the zip file or download the individual files.
 Download `JHUWebSec_IDZT_files.zip` into your Linux sandbox, then unzip it.
 
 Example in bash:
+```bash
 $ mkdir -p ~/IDZT
 $ cd ~/IDZT
 $ wget https://github.com/drcjhu/JHU_WebSec_ZT_ID_Module/blob/main/JHUWebSec_IDZT_files.zip
 $ unzip JHUWebSec_IDZT_files.zip
-
+```
 If your instructions place files in slightly different locations, follow the assignment guidance. The main goal is to keep the environment organized and easy to troubleshoot.
 
+```text
 ~/Mod11_IDZT/
 ├── docker-compose.yml
 ├── admin_adv.config
@@ -49,3 +51,4 @@ If your instructions place files in slightly different locations, follow the ass
 │   └── config/
 │       ├── configuration.yml
 │       └── users_database.yml
+```
